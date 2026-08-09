@@ -72,7 +72,7 @@ agent_executor = AgentExecutor(
 
 # Execution Flow
 if __name__ == "__main__":
-    console.rule("[bold cyan]🧠 AI Agentic Research Assistant")
+    console.rule("[bold cyan] AI Agentic Research Assistant")
     print("\n")
     
     # Styled Input Prompt
