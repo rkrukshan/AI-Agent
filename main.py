@@ -3,8 +3,10 @@ from pydantic import BaseModel
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import PydanticOutputParser
-from langchain.agents import create_tool_calling_agent, AgentExecutor
+from langchain_classic.agents import create_tool_calling_agent, AgentExecutor
 from tools import search_tool, wiki_tool, save_tool
+from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
+
 
 # --- RICH CLI UI IMPORTS ---
 from rich.console import Console
@@ -27,10 +29,13 @@ class ResearchResponse(BaseModel):
 
 
 # Initialize Gemini LLM with your updated model
-llm = ChatGoogleGenerativeAI(
-    model="gemini-2.5-flash",
-    temperature=0
+llm_endpoint = HuggingFaceEndpoint(
+    repo_id="Qwen/Qwen2.5-72B-Instruct", # டூல்ஸ்காக ஸ்பெஷலா ட்ரைன் பண்ணப்பட்ட மாடல்
+    temperature=0.1,
+    max_new_tokens=512,
 )
+# அதை Chat Model ஆக மாற்றுதல்
+llm = ChatHuggingFace(llm=llm_endpoint)
 
 # Setup Pydantic Parser
 parser = PydanticOutputParser(pydantic_object=ResearchResponse)

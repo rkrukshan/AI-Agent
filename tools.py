@@ -1,6 +1,6 @@
 from datetime import datetime
 import wikipedia
-from langchain.tools import Tool
+from langchain_core.tools import Tool
 
 # 1. Reliable Wikipedia Tool
 # We must set a custom User-Agent, otherwise Wikipedia blocks the API request and returns a JSONDecodeError
