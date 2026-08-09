@@ -2,6 +2,7 @@
 # AI Research Assistant Agent
 
 An intelligent, multi-tool AI Research Assistant built using **LangChain**, **Pydantic**, and LLM models (Anthropic Claude / OpenAI GPT). The agent processes natural language research queries, autonomously searches online sources (Wikipedia, DuckDuckGo), saves detailed reports to text files, and returns strictly structured Pydantic data.
+to run app  ./venv/Scripts/python.exe main.py
 
 ---
 
