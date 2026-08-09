@@ -30,11 +30,11 @@ class ResearchResponse(BaseModel):
 
 # Initialize Gemini LLM with your updated model
 llm_endpoint = HuggingFaceEndpoint(
-    repo_id="Qwen/Qwen2.5-72B-Instruct", # டூல்ஸ்காக ஸ்பெஷலா ட்ரைன் பண்ணப்பட்ட மாடல்
+    repo_id="Qwen/Qwen2.5-72B-Instruct", # trained model for tools
     temperature=0.1,
     max_new_tokens=512,
 )
-# அதை Chat Model ஆக மாற்றுதல்
+# conver that as a Chat Model
 llm = ChatHuggingFace(llm=llm_endpoint)
 
 # Setup Pydantic Parser
